@@ -1,11 +1,12 @@
 import re
 
 
-def readTexts(filepath):
+def read_file(filepath):
     file = open(filepath)
-    return textProcessor(file.readlines())
+    return text_processor(file.readlines())
 
-def textProcessor(strings):
+
+def text_processor(strings):
     output = []
     for string in strings:
         string = re.sub('[^A-Za-z ,.!?]', '', string)

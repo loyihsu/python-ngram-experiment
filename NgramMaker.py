@@ -6,25 +6,26 @@ class Ngram:
         self.map = dict()
         self.n = n
         self.text = text
-        self.generateMap()
+        self.generate_map()
 
-    def generateMap(self):
-        for depth in range(2, self.n+1):
+    # Create an N-gram dictionary for the input text.
+    def generate_map(self):
+        for depth in range(2, self.n + 1):
             print(f"Generating {depth}-gram")
             for idx in range(0, len(self.text) - depth - 2):
                 subarray = tuple(self.text[idx:(idx + depth - 1)])
-                if self.map.get(subarray) != None:
+                if self.map.get(subarray) is not None:
                     self.map[subarray].insert(len(self.map[subarray]), self.text[idx + depth - 1])
                 else:
                     self.map[subarray] = [self.text[idx + depth - 1]]
 
-    def getPossibility(self, past):
+    # Quick getter of the next random word.
+    def get_possibility(self, past):
         temp = len(past)
         while temp:
             possibilities = self.map.get(tuple(past[-temp:]))
-            if possibilities == None:
+            if possibilities is None:
                 temp -= 1
                 continue
             if len(possibilities) != 0:
-                next = possibilities[random.randint(0, len(possibilities)-1)]
-                return next
+                return possibilities[random.randint(0, len(possibilities) - 1)]
