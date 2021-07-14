@@ -1,12 +1,12 @@
 import NgramMaker
 import TextReader
 
-n = 10
+n = 4
 
 file = TextReader.readTexts("txt/shakespeare.txt")
 gram = NgramMaker.Ngram(n, file)
 
-output = ["In", "the"]
+output = ["in"]
 
 while len(output) < 400:
     if len(output) < n-1:

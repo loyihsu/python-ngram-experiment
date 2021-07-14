@@ -18,8 +18,6 @@ class Ngram:
                 else:
                     self.map[subarray] = [self.text[idx + depth - 1]]
 
-
-
     def getPossibility(self, past):
         temp = len(past)
         while temp:

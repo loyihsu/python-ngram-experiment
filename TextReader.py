@@ -8,7 +8,7 @@ def readTexts(filepath):
 def textProcessor(strings):
     output = []
     for string in strings:
-        string = re.sub('[^A-Za-z ,.]', '', string)
+        string = re.sub('[^A-Za-z ,.!?]', '', string)
         sentence = string.split()
         if len(sentence) != 0:
             for text in sentence:
