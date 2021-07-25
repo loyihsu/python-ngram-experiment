@@ -12,12 +12,12 @@ output = []
 
 while len(output) < 400:  # Generate the first 400 words from the N-gram
     if len(output) == 0:
-        output.insert(0, file[random.randint(0, len(file) - 1)])  # Start from a random word if no starting words
+        output.append(file[random.randint(0, len(file) - 1)])  # Start from a random word if no starting words
 
     if len(output) < n - 1:  # First n-1 words
-        output.insert(len(output), gram.get_possibility(output))
+        output.append(gram.get_possibility(output))
     else:  # The rest of the thing.
-        output.insert(len(output), gram.get_possibility(output[-n + 1:]))
+        output.append(gram.get_possibility(output[-n + 1:]))
 
 
 # Generate the strings to print

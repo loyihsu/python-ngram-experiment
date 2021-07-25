@@ -13,5 +13,5 @@ def text_processor(strings):
         sentence = string.split()
         if len(sentence) != 0:
             for text in sentence:
-                output.insert(len(output), text.lower())
+                output.append(text.lower())
     return output

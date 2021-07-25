@@ -15,7 +15,7 @@ class Ngram:
             for idx in range(0, len(self.text) - depth - 2):
                 subarray = tuple(self.text[idx:(idx + depth - 1)])
                 if self.map.get(subarray) is not None:
-                    self.map[subarray].insert(len(self.map[subarray]), self.text[idx + depth - 1])
+                    self.map[subarray].append(self.text[idx + depth - 1])
                 else:
                     self.map[subarray] = [self.text[idx + depth - 1]]
 
